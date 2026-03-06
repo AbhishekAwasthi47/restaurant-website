@@ -1,0 +1,150 @@
+{
+    "dishes": [
+        {
+            "id": "d001",
+            "name": "Sashimi Moriawase",
+            "category": "sashimi",
+            "price": 1800,
+            "description": "A curated selection of the freshest seasonal fish, sliced by our itamae with precision and care.",
+            "image": "/artifacts/sashimi_moriawase_1772723375216.png",
+            "tags": [
+                "chef-pick",
+                "seasonal"
+            ],
+            "available": true
+        },
+        {
+            "id": "d002",
+            "name": "Wagyu Nigiri (2 pcs)",
+            "category": "nigiri",
+            "price": 1500,
+            "description": "A5 Wagyu beef, lightly torched, atop seasoned shari rice with a touch of truffle salt.",
+            "image": "/artifacts/wagyu_nigiri_1772723394324.png",
+            "tags": [
+                "chef-pick",
+                "premium"
+            ],
+            "available": true
+        },
+        {
+            "id": "d003",
+            "name": "Kaze Ramen",
+            "category": "ramen",
+            "price": 850,
+            "description": "Our signature tonkotsu broth, simmered for 18 hours, with chashu pork, soft egg, and bamboo shoots.",
+            "image": "/artifacts/kaze_ramen_1772723415450.png",
+            "tags": [
+                "popular",
+                "signature"
+            ],
+            "available": true
+        },
+        {
+            "id": "d004",
+            "name": "Uni Ikura Don",
+            "category": "donburi",
+            "price": 2200,
+            "description": "Premium Santa Barbara sea urchin and Hokkaido salmon roe over perfectly seasoned rice.",
+            "image": "/artifacts/uni_ikura_don_1772723439448.png",
+            "tags": [
+                "chef-pick",
+                "premium"
+            ],
+            "available": true
+        },
+        {
+            "id": "d005",
+            "name": "Edamame",
+            "category": "appetizers",
+            "price": 350,
+            "description": "Salted young soybeans, lightly charred on the robata grill.",
+            "image": "/artifacts/edamame_1772723481065.png",
+            "tags": [
+                "vegan"
+            ],
+            "available": true
+        },
+        {
+            "id": "d006",
+            "name": "Gyoza (6 pcs)",
+            "category": "appetizers",
+            "price": 450,
+            "description": "Pan-fried pork and cabbage dumplings with yuzu ponzu dipping sauce.",
+            "image": "/artifacts/gyoza_1772723499574.png",
+            "tags": [
+                "popular"
+            ],
+            "available": true
+        },
+        {
+            "id": "d007",
+            "name": "Matcha Tiramisu",
+            "category": "desserts",
+            "price": 550,
+            "description": "A Japanese-Italian fusion dessert with ceremonial grade matcha, mascarpone, and lady fingers.",
+            "image": "/artifacts/matcha_tiramisu_1772723521412.png",
+            "tags": [
+                "popular",
+                "seasonal"
+            ],
+            "available": true
+        },
+        {
+            "id": "d008",
+            "name": "Yuzu Sake Cocktail",
+            "category": "drinks",
+            "price": 750,
+            "description": "House-infused yuzu sake with lychee, elderflower and a hint of shiso.",
+            "image": "/artifacts/yuzu_sake_1772723539663.png",
+            "tags": [
+                "popular"
+            ],
+            "available": true
+        },
+        {
+            "id": "d009",
+            "name": "Tempura Moriawase",
+            "category": "appetizers",
+            "price": 1100,
+            "description": "Seasonal vegetables and tiger prawns in an impossibly light, crisp batter. Served with tentsuyu dipping broth.",
+            "image": "/artifacts/tempura_moriawase_1772723604497.png",
+            "tags": [],
+            "available": true
+        },
+        {
+            "id": "d010",
+            "name": "Miso Soup",
+            "category": "soup",
+            "price": 250,
+            "description": "Traditional white miso with silken tofu, wakame, and fresh spring onions.",
+            "image": "/artifacts/miso_soup_1772723623251.png",
+            "tags": [
+                "vegan"
+            ],
+            "available": true
+        },
+        {
+            "id": "d011",
+            "name": "Black Sesame Panna Cotta",
+            "category": "desserts",
+            "price": 480,
+            "description": "Silky Italian panna cotta made with roasted black sesame, finished with a honey glaze.",
+            "image": "/artifacts/black_sesame_panna_cotta_1772723642898.png",
+            "tags": [],
+            "available": true
+        },
+        {
+            "id": "d012",
+            "name": "Hojicha Latte",
+            "category": "drinks",
+            "price": 320,
+            "description": "Roasted Japanese green tea with steamed oat milk, lightly sweetened.",
+            "image": "/artifacts/matcha_tiramisu_1772723521412.png",
+            "tags": [
+                "popular",
+                "vegan"
+            ],
+            "available": true
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "posts": [
+        {
+            "id": "p001",
+            "type": "event",
+            "title": "Spring Sakura Tasting Menu",
+            "slug": "spring-sakura-tasting-menu",
+            "excerpt": "Celebrate hanami season with our exclusive 8-course sakura-themed omakase experience.",
+            "content": "Join us this April for a deeply seasonal tasting menu inspired by the fleeting beauty of cherry blossoms. Each course is crafted from the finest spring ingredients...",
+            "image": "/uploads/sakura-event.jpg",
+            "date": "2026-04-01",
+            "published": true,
+            "createdAt": "2026-03-01T10:00:00Z"
+        },
+        {
+            "id": "p002",
+            "type": "announcement",
+            "title": "New: Omakase Counter Opens April 15",
+            "slug": "omakase-counter-opens",
+            "excerpt": "We are thrilled to announce the opening of our intimate 8-seat omakase counter.",
+            "content": "Starting April 15th, Chef Hiroshi will personally guide guests through a 12-course journey at our new omakase counter...",
+            "image": "/uploads/omakase-counter.jpg",
+            "date": "2026-04-15",
+            "published": true,
+            "createdAt": "2026-03-02T09:00:00Z"
+        }
+    ]
+}

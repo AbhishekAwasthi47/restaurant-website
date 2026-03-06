@@ -1,0 +1,28 @@
+{
+  "homepage": {
+    "heroTagline": "風 — Where Every Season\nTells a Story",
+    "heroSubtext": "Authentic Japanese cuisine crafted with seasonal precision in the heart of the city.",
+    "chefName": "Chef Hiroshi Tanaka",
+    "chefBio": "Born in Kyoto and trained in Tokyo's finest kaiseki restaurants, Chef Hiroshi brings two decades of mastery to every plate. His philosophy is simple: honour the ingredient, honour the season.",
+    "restaurantStory": "Kaze — meaning 'wind' or 'breeze' — was born from a vision of Japanese cuisine that breathes. Ever-changing with the seasons, always rooted in tradition. We opened our doors in 2019 with a single promise: that every visit would be different, and every dish, unforgettable.",
+    "seasonalTitle": "春 · Spring Menu",
+    "seasonalDescription": "Cherry blossoms inspire our April omakase. Delicate, fleeting, and utterly beautiful.",
+    "season": "spring"
+  },
+  "seo": {
+    "siteTitle": "Kaze (風) — Authentic Japanese Restaurant",
+    "metaDescription": "Experience authentic Japanese cuisine at Kaze. Seasonal menus, omakase dining, and effortless reservations. Book your table today.",
+    "keywords": "Japanese restaurant, sushi, ramen, omakase, reservation, seasonal",
+    "ogImage": "/uploads/hero-bg.jpg"
+  },
+  "design": {
+    "accentColor": "#7a9e7e",
+    "accentColorDark": "#5a7e5e",
+    "textPrimary": "#1a1a1a",
+    "textSecondary": "#6b6b6b",
+    "bgPrimary": "#f8f7f4",
+    "bgCard": "#FFFFFF",
+    "fontHeading": "Cormorant Garamond",
+    "fontBody": "Inter"
+  }
+}

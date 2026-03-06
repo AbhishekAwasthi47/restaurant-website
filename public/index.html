@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaze (風) — Authentic Japanese Restaurant</title>
+  <meta name="description"
+    content="Experience authentic Japanese cuisine at Kaze. Seasonal menus, omakase dining, and effortless reservations. Book your table today." />
+  <meta name="keywords" content="Japanese restaurant, sushi, ramen, omakase, reservation, seasonal" />
+  <meta property="og:title" content="Kaze (風) — Authentic Japanese Restaurant" />
+  <meta property="og:description" content="Seasonal menus, omakase dining, effortless reservations." />
+  <meta property="og:image" content="/uploads/hero-bg.jpg" />
+  <meta property="og:type" content="website" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body id="home">
+
+  <!-- ─────────────────── CURSOR WIND PARTICLE ─────────────────── -->
+  <div id="cursor-wind" aria-hidden="true"></div>
+  <canvas id="wind-canvas" aria-hidden="true"></canvas>
+
+  <!-- ─────────────────── NAV ─────────────────── -->
+  <header class="site-header" id="site-header">
+    <nav class="nav container">
+      <a href="/" class="nav-logo" aria-label="Kaze home">
+        <span class="logo-kanji">風</span>
+        <span class="logo-text">Kaze</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#seasonal">Season</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#location">Visit</a></li>
+        <li><a href="#events">Events</a></li>
+      </ul>
+      <a href="#reserve" class="btn btn-nav">Reserve a Table</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ─────────────────── HERO ─────────────────── -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="/uploads/hero-bg.jpg" alt="" class="hero-img" id="hero-img" />
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="hero-content">
+      <span class="hero-subtitle">Authentic Japanese Cuisine</span>
+      <h1 class="hero-title">Where Every Season<br><em>Tells a Story</em></h1>
+      <p class="hero-desc">Seasonal precision. Timeless tradition. One unforgettable experience.</p>
+      <div class="hero-cta">
+        <a href="#menu" class="btn btn-outline btn-lg">Explore Menu</a>
+      </div>
+    </div>
+
+    <!-- Quick Reserve Bar — inside hero, below center content -->
+    <div class="booking-widget" id="booking-widget">
+      <div class="booking-bar-wrap">
+        <p class="booking-bar-label">✦ Quick Reserve</p>
+        <div class="booking-bar">
+          <div class="booking-field">
+            <span class="booking-field-icon">👥</span>
+            <div class="booking-field-input">
+              <label for="bw-guests">Guests</label>
+              <select id="bw-guests">
+                <option value="2">2 People</option>
+                <option value="1">1 Person</option>
+                <option value="3">3 People</option>
+                <option value="4">4 People</option>
+                <option value="5">5+ People</option>
+              </select>
+            </div>
+          </div>
+          <div class="booking-divider"></div>
+          <div class="booking-field">
+            <span class="booking-field-icon">📅</span>
+            <div class="booking-field-input">
+              <label for="bw-date">Date</label>
+              <input type="date" id="bw-date" />
+            </div>
+          </div>
+          <div class="booking-divider"></div>
+          <div class="booking-field">
+            <span class="booking-field-icon">🕐</span>
+            <div class="booking-field-input">
+              <label for="bw-time">Time</label>
+              <select id="bw-time">
+                <option value="19:00">7:00 PM</option>
+                <option value="18:30">6:30 PM</option>
+                <option value="19:30">7:30 PM</option>
+                <option value="20:00">8:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-primary booking-btn" id="quick-book-btn">
+            Book Now →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ─────────────────── ABOUT ─────────────────── -->
+  <section class="about section" id="about">
+    <div class="container about-grid">
+      <div class="about-img-group reveal-left">
+        <img src="/uploads/about-section.jpg" alt="Dining at Kaze" class="about-img-main" />
+        <div class="about-experience-card">
+          <span class="about-exp-title">5+</span>
+          <span class="about-exp-label">Years of Mastery</span>
+        </div>
+      </div>
+      <div class="about-text reveal-right">
+        <span class="section-label">Our Story</span>
+        <h2 class="section-title">The Wind that Shaped Us</h2>
+        <p class="about-desc">Kaze — meaning 'wind' or 'breeze' — was born from a vision of Japanese cuisine that
+          breathes. Ever-changing with the seasons, always rooted in tradition. We opened our doors in 2019 with a
+          single promise: that every visit would be different, and every dish, unforgettable.</p>
+        <div class="chef-card">
+          <div class="chef-avatar-wrap">
+            <img src="/uploads/chef-hiroshi.jpg" alt="Chef Hiroshi Tanaka" class="chef-avatar" />
+          </div>
+          <div class="chef-body">
+            <h3 class="chef-name">Chef Hiroshi Tanaka</h3>
+            <p class="chef-role">Executive Chef & Co-founder</p>
+            <p class="chef-bio">Born in Kyoto, trained in Tokyo's finest kaiseki restaurants, Chef Hiroshi brings two
+              decades of mastery to every plate. His philosophy is simple: honour the ingredient, honour the season.</p>
+          </div>
+        </div>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Fresh Ingredients</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">12</span>
+            <span class="stat-label">Seasonal Menus</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────── SEASONAL ─────────────────── -->
+  <section class="seasonal section" id="seasonal">
+    <div class="seasonal-bg">
+      <div class="seasonal-petals" id="seasonal-petals"></div>
+    </div>
+    <div class="container">
+      <div class="seasonal-header reveal">
+        <div class="season-kanji" id="season-kanji">春</div>
+        <div class="seasonal-title-wrap">
+          <span class="section-label" id="season-label">Spring Menu</span>
+          <h2 class="section-title" id="season-title">Sakura Awakening</h2>
+          <p class="seasonal-desc" id="season-desc">Cherry blossoms inspire our April omakase. Delicate, fleeting, and
+            utterly beautiful.</p>
+        </div>
+      </div>
+      <div class="seasonal-dishes" id="seasonal-dishes">
+        <!-- populated by JS -->
+      </div>
+      <div class="seasonal-cta reveal">
+        <a href="#reserve" class="btn btn-primary">Book the Seasonal Experience</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────── MENU ─────────────────── -->
+  <section class="menu section" id="menu">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Discover</span>
+        <h2 class="section-title">The Menu</h2>
+        <p class="section-desc">Handcrafted with the finest seasonal ingredients. Click any dish to see it in full
+          detail.</p>
+      </div>
+
+      <div class="menu-tabs" id="menu-tabs">
+        <button class="tab-btn active" data-cat="all">All</button>
+        <button class="tab-btn" data-cat="sashimi">Sashimi</button>
+        <button class="tab-btn" data-cat="nigiri">Nigiri</button>
+        <button class="tab-btn" data-cat="ramen">Ramen</button>
+        <button class="tab-btn" data-cat="donburi">Donburi</button>
+        <button class="tab-btn" data-cat="appetizers">Appetizers</button>
+        <button class="tab-btn" data-cat="soup">Soup</button>
+        <button class="tab-btn" data-cat="desserts">Desserts</button>
+        <button class="tab-btn" data-cat="drinks">Drinks</button>
+      </div>
+
+      <div class="menu-grid" id="menu-grid">
+        <!-- populated by JS -->
+      </div>
+
+      <div class="menu-footer reveal">
+        <p>Prices include GST. 10% Service Charge applies for parties of 6 or more.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────── DISH MODAL ─────────────────── -->
+  <div class="modal-overlay" id="dish-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <div class="modal-grid">
+        <div class="modal-img-wrap">
+          <img src="" alt="" id="modal-img" />
+        </div>
+        <div class="modal-info">
+          <div class="modal-tags" id="modal-tags"></div>
+          <h3 id="modal-dish-name"></h3>
+          <p class="modal-price" id="modal-price"></p>
+          <p class="modal-desc" id="modal-desc"></p>
+          <div class="modal-actions">
+            <a href="#reserve" class="btn btn-primary modal-reserve-btn">Reserve to Try This</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────── RESERVATIONS ─────────────────── -->
+  <section class="reserve section" id="reserve">
+    <div class="container reserve-wrap">
+      <div class="section-header reveal">
+        <span class="section-label">Join Us</span>
+        <h2 class="section-title">Reserve Your Table</h2>
+        <p class="section-desc">Join us for an unforgettable dining experience. We look forward to welcoming you.</p>
+      </div>
+
+      <form class="reserve-form reveal" id="reserve-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="r-name">Name</label>
+            <input type="text" id="r-name" name="name" required placeholder="Your full name" />
+          </div>
+          <div class="form-group">
+            <label for="r-email">Email</label>
+            <input type="email" id="r-email" name="email" required placeholder="your@email.com" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="r-guests">Guests</label>
+            <select id="r-guests" name="guests" required>
+              <option value="1">1 Person</option>
+              <option value="2" selected>2 People</option>
+              <option value="3">3 People</option>
+              <option value="4">4 People</option>
+              <option value="5">5 People</option>
+              <option value="6">6 People</option>
+              <option value="large">Large Party (7+)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="r-date">Date</label>
+            <input type="date" id="r-date" name="date" required />
+          </div>
+          <div class="form-group">
+            <label for="r-time">Time</label>
+            <select id="r-time" name="time" required>
+              <option value="12:00">12:00 PM</option>
+              <option value="12:30">12:30 PM</option>
+              <option value="13:00">1:00 PM</option>
+              <option value="13:30">1:30 PM</option>
+              <option value="18:00">6:00 PM</option>
+              <option value="18:30">6:30 PM</option>
+              <option value="19:00">7:00 PM</option>
+              <option value="19:30">7:30 PM</option>
+              <option value="20:00">8:00 PM</option>
+              <option value="20:30">8:30 PM</option>
+              <option value="21:00">9:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group full">
+          <label for="r-notes">Special Requests / Dietary Notes</label>
+          <textarea id="r-notes" name="notes" rows="3"
+            placeholder="Allergies, celebrations, dietary requirements..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" id="reserve-submit">
+          <span id="reserve-btn-text">Confirm Reservation</span>
+          <span class="btn-loader" id="reserve-loader" hidden></span>
+        </button>
+      </form>
+      <div class="reserve-success" id="reserve-success" hidden>
+        <div class="success-icon">🌿</div>
+        <h3>Reservation Received!</h3>
+        <p id="reserve-confirm-msg">We will confirm your table by email within 30 minutes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────── TESTIMONIALS ─────────────────── -->
+  <section class="testimonials section" id="testimonials">
+    <div class="container text-center">
+      <div class="section-header reveal">
+        <span class="section-label">Guest Experiences</span>
+        <h2 class="section-title">What They're Saying</h2>
+        <div class="google-badge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+              fill="#4285F4" />
+            <path
+              d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+              fill="#34A853" />
+            <path
+              d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+              fill="#FBBC05" />
+            <path
+              d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+              fill="#EA4335" />
+          </svg>
+          <span>★★★★★ 4.9 &nbsp;·&nbsp; 347 Google Reviews</span>
+        </div>
+      </div>
+      <div class="testimonials-slider" id="testimonials-slider">
+        <div class="testimonials-track">
+          <!-- slides injected by JS -->
+        </div>
+      </div>
+      <div class="slider-controls" id="slider-controls">
+        <!-- arrows and dots injected by JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─────────────────── LOCATION & HOURS ─────────────────── -->
+  <section class="location section" id="location">
+    <div class="container location-grid">
+      <div class="location-info reveal-left">
+        <span class="section-label">Find Us</span>
+        <h2 class="section-title">Visit Kaze</h2>
+        <div class="location-details">
+          <div class="location-item">
+            <div class="loc-icon">📍</div>
+            <div>
+              <p class="loc-label">Address</p>
+              <p class="loc-value">12 Sakura Lane, Civil Lines<br>Kanpur, Uttar Pradesh 208001</p>
+            </div>
+          </div>
+          <div class="location-item">
+            <div class="loc-icon">📞</div>
+            <div>
+              <p class="loc-label">Phone</p>
+              <p class="loc-value"><a href="tel:+919876543210">+91 98765 43210</a></p>
+            </div>
+          </div>
+          <div class="location-item">
+            <div class="loc-icon">✉️</div>
+            <div>
+              <p class="loc-label">Email</p>
+              <p class="loc-value"><a href="mailto:hello@kazerestaurant.com">hello@kazerestaurant.com</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="hours-card">
+          <h3 class="hours-title">Opening Hours</h3>
+          <div class="hours-list" id="hours-list">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+      <div class="location-map reveal-right">
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114312.43572834032!2d80.2442436!3d26.4475475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c4770b127c46f%3A0x1778302a9fbe7b41!2sKanpur%2C%20Uttar%20Pradesh%2C%20India!5e0!3m2!1sen!2sus!4v1708450123456"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Kaze Restaurant Location">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────── FAQ ─────────────────── -->
+  <section class="faq section" id="faq">
+    <div class="container faq-wrap">
+      <div class="section-header reveal">
+        <span class="section-label">Questions</span>
+        <h2 class="section-title">Frequently Asked</h2>
+      </div>
+      <div class="faq-grid" id="faq-grid">
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Do you cater to dietary restrictions?</button>
+          <div class="faq-answer">
+            <p>Absolutely. We offer vegan, vegetarian, gluten-free, and nut-free options across our menu. Please inform
+              us of any allergies when booking — our chefs will craft a bespoke experience for you.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Is parking available?</button>
+          <div class="faq-answer">
+            <p>We have a complimentary valet parking service for dinner reservations after 6 PM. Several public parking
+              garages are also within a 5-minute walk of the restaurant.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">What is the cancellation policy?</button>
+          <div class="faq-answer">
+            <p>We kindly ask for 24 hours' notice for cancellations. For omakase bookings, 48 hours is required. You can
+              cancel via the confirmation email link or by calling us directly.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Do you accept walk-ins?</button>
+          <div class="faq-answer">
+            <p>We always try to accommodate walk-ins at the bar and for smaller parties during off-peak hours.
+              Reservations are strongly recommended for Friday—Sunday evenings and for the omakase counter.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Can I host a private event?</button>
+          <div class="faq-answer">
+            <p>Yes! Our private dining room seats up to 20 guests and can be reserved for celebrations, corporate
+              dinners, and events. Please contact us at hello@kazerestaurant.com for packages.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">What is omakase dining?</button>
+          <div class="faq-answer">
+            <p>Omakase means "I'll leave it up to you." Our chef selects every course based on the freshest seasonal
+              availability. It is the most intimate and immersive way to experience Kaze.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────── BLOG / EVENTS ─────────────────── -->
+  <section class="blog section" id="blog">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">News & Events</span>
+        <h2 class="section-title">What's Happening at Kaze</h2>
+      </div>
+      <div class="blog-grid" id="blog-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────── CONTACT ─────────────────── -->
+  <section class="contact section" id="contact">
+    <div class="container contact-wrap">
+      <div class="section-header reveal">
+        <span class="section-label">Get in Touch</span>
+        <h2 class="section-title">We'd Love to Hear from You</h2>
+      </div>
+      <form class="contact-form reveal" id="contact-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="c-name">Name *</label>
+            <input type="text" id="c-name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="c-email">Email *</label>
+            <input type="email" id="c-email" name="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div class="form-group full">
+          <label for="c-subject">Subject</label>
+          <input type="text" id="c-subject" name="subject" placeholder="How can we help?" />
+        </div>
+        <div class="form-group full">
+          <label for="c-message">Message *</label>
+          <textarea id="c-message" name="message" rows="4" placeholder="Tell us more..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+      <div class="contact-success" id="contact-success" hidden>
+        <div class="success-icon">✉️</div>
+        <h3>Message Sent!</h3>
+        <p>Thank you! We'll get back to you within 24 hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────── FOOTER ─────────────────── -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo" aria-label="Kaze home">
+          <span class="logo-kanji">風</span>
+          <span class="logo-text">Kaze</span>
+        </a>
+        <p class="footer-tagline">Where every season tells a story.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="TikTok" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#seasonal">Seasonal Menu</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#blog">Events</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Visit</h4>
+        <ul>
+          <li><a href="#location">Location</a></li>
+          <li><a href="#reserve">Reservations</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="/admin">Admin Panel</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>12 Sakura Lane, Civil Lines<br>Kanpur, Uttar Pradesh 208001</p>
+        <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+        <p><a href="mailto:hello@kazerestaurant.com">hello@kazerestaurant.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="footer-year"></span> Kaze Restaurant. All rights reserved. &nbsp;·&nbsp; <a href="#">Privacy
+          Policy</a> &nbsp;·&nbsp; <a href="#">Terms</a></p>
+    </div>
+  </footer>
+
+  <!-- ─────────────────── MOBILE STICKY BOOK BTN ─────────────────── -->
+  <div class="mobile-sticky-cta" id="mobile-sticky-cta">
+    <a href="#reserve" class="btn btn-primary btn-full">
+      🌿 &nbsp;Reserve a Table
+    </a>
+  </div>
+
+  <script src="/js/main.js"></script>
+</body>
+
+</html>

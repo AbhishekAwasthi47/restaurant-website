@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kaze Admin — Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/admin/css/admin.css" />
+</head>
+
+<body>
+
+    <!-- ── Sidebar ─────────────────────────────────── -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <span class="logo-kanji">風</span>
+                <div>
+                    <span class="logo-text">Kaze</span>
+                    <span class="logo-sub">Admin Panel</span>
+                </div>
+            </div>
+            <button class="sidebar-close" id="sidebar-close" aria-label="Close sidebar">✕</button>
+        </div>
+
+        <nav class="sidebar-nav" role="navigation" aria-label="Admin navigation">
+            <ul>
+                <li><button class="nav-item active" data-panel="dashboard">
+                        <span class="nav-icon">📊</span> Dashboard
+                    </button></li>
+                <li><button class="nav-item" data-panel="menu">
+                        <span class="nav-icon">🍽️</span> Menu Manager
+                    </button></li>
+                <li><button class="nav-item" data-panel="reservations">
+                        <span class="nav-icon">📅</span> Reservations
+                        <span class="nav-badge" id="pending-badge">0</span>
+                    </button></li>
+                <li><button class="nav-item" data-panel="contacts">
+                        <span class="nav-icon">✉️</span> Messages
+                        <span class="nav-badge" id="unread-badge">0</span>
+                    </button></li>
+                <li><button class="nav-item" data-panel="hours">
+                        <span class="nav-icon">🕐</span> Opening Hours
+                    </button></li>
+                <li><button class="nav-item" data-panel="blog">
+                        <span class="nav-icon">📝</span> Blog & Events
+                    </button></li>
+                <li><button class="nav-item" data-panel="media">
+                        <span class="nav-icon">🖼️</span> Media Library
+                    </button></li>
+                <li><button class="nav-item" data-panel="settings">
+                        <span class="nav-icon">⚙️</span> SEO & Settings
+                    </button></li>
+                <li><button class="nav-item" data-panel="design">
+                        <span class="nav-icon">🎨</span> Design
+                    </button></li>
+                <li style="margin-top:20px; border-top: 1px solid var(--border); padding-top:10px;">
+                    <button class="nav-item" id="logout-btn" style="color: #dc2626;">
+                        <span class="nav-icon">🚪</span> Logout
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="/" target="_blank" class="view-site-btn">🌐 View Site</a>
+        </div>
+    </aside>
+
+    <!-- ── Top bar ─────────────────────────────────── -->
+    <div class="admin-wrap">
+        <header class="topbar">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Open sidebar">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="topbar-title" id="topbar-title">Dashboard</div>
+            <div class="topbar-right">
+                <span class="topbar-time" id="topbar-time"></span>
+                <div class="topbar-avatar" title="Admin">A</div>
+            </div>
+        </header>
+
+        <!-- ── Main content ─────────────────────────── -->
+        <main class="admin-main" id="admin-main">
+
+            <!-- DASHBOARD ──────────────────────────────── -->
+            <section class="panel active" id="panel-dashboard">
+                <div class="panel-header">
+                    <h1 class="panel-title">Welcome back, Admin 👋</h1>
+                    <p class="panel-sub">Here's what's happening at Kaze today.</p>
+                </div>
+                <div class="stats-grid" id="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-info">
+                            <span class="stat-label">Total Reservations</span>
+                            <span class="stat-value" id="stat-reservations">—</span>
+                        </div>
+                    </div>
+                    <div class="stat-card accent">
+                        <div class="stat-icon">⏳</div>
+                        <div class="stat-info">
+                            <span class="stat-label">Pending Confirmation</span>
+                            <span class="stat-value" id="stat-pending">—</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✉️</div>
+                        <div class="stat-info">
+                            <span class="stat-label">Unread Messages</span>
+                            <span class="stat-value" id="stat-messages">—</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🍽️</div>
+                        <div class="stat-info">
+                            <span class="stat-label">Menu Items</span>
+                            <span class="stat-value" id="stat-menu">—</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-cols">
+                    <div class="dash-card">
+                        <div class="dash-card-header">
+                            <h2>Recent Reservations</h2>
+                            <button class="link-btn" data-panel="reservations">View All →</button>
+                        </div>
+                        <div id="recent-reservations"></div>
+                    </div>
+                    <div class="dash-card">
+                        <div class="dash-card-header">
+                            <h2>Recent Messages</h2>
+                            <button class="link-btn" data-panel="contacts">View All →</button>
+                        </div>
+                        <div id="recent-contacts"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MENU MANAGER ───────────────────────────── -->
+            <section class="panel" id="panel-menu">
+                <div class="panel-header">
+                    <h1 class="panel-title">Menu Manager</h1>
+                    <button class="btn btn-primary" id="add-dish-btn">+ Add Dish</button>
+                </div>
+
+                <!-- Add/Edit form -->
+                <div class="card form-card" id="dish-form-card" style="display:none">
+                    <h2 class="card-title" id="dish-form-title">Add New Dish</h2>
+                    <form id="dish-form" class="admin-form">
+                        <input type="hidden" id="dish-id" />
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="df-name">Dish Name *</label>
+                                <input type="text" id="df-name" placeholder="e.g. Sashimi Moriawase" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="df-category">Category *</label>
+                                <select id="df-category">
+                                    <option value="sashimi">Sashimi</option>
+                                    <option value="nigiri">Nigiri</option>
+                                    <option value="ramen">Ramen</option>
+                                    <option value="donburi">Donburi</option>
+                                    <option value="appetizers">Appetizers</option>
+                                    <option value="soup">Soup</option>
+                                    <option value="desserts">Desserts</option>
+                                    <option value="drinks">Drinks</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="df-price">Price ($) *</label>
+                                <input type="number" id="df-price" min="0" step="0.5" placeholder="0" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="df-image">Image URL</label>
+                                <input type="text" id="df-image" placeholder="/uploads/my-dish.jpg" />
+                            </div>
+                            <div class="form-group full">
+                                <label for="df-desc">Description *</label>
+                                <textarea id="df-desc" rows="3" placeholder="Describe the dish..." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Tags</label>
+                                <div class="tag-checkboxes">
+                                    <label class="checkbox-label"><input type="checkbox" name="tags"
+                                            value="chef-pick" /> Chef's Pick</label>
+                                    <label class="checkbox-label"><input type="checkbox" name="tags" value="popular" />
+                                        Popular</label>
+                                    <label class="checkbox-label"><input type="checkbox" name="tags" value="seasonal" />
+                                        Seasonal</label>
+                                    <label class="checkbox-label"><input type="checkbox" name="tags" value="vegan" />
+                                        Vegan</label>
+                                    <label class="checkbox-label"><input type="checkbox" name="tags" value="premium" />
+                                        Premium</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label" style="margin-top:24px">
+                                    <input type="checkbox" id="df-available" checked /> &nbsp;Available on menu
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" id="dish-form-submit">Save Dish</button>
+                            <button type="button" class="btn btn-ghost-dark" id="dish-form-cancel">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <div class="card-toolbar">
+                        <input type="text" class="search-input" id="menu-search" placeholder="🔍 Search dishes..." />
+                        <select class="filter-select" id="menu-cat-filter">
+                            <option value="all">All Categories</option>
+                            <option value="sashimi">Sashimi</option>
+                            <option value="nigiri">Nigiri</option>
+                            <option value="ramen">Ramen</option>
+                            <option value="donburi">Donburi</option>
+                            <option value="appetizers">Appetizers</option>
+                            <option value="soup">Soup</option>
+                            <option value="desserts">Desserts</option>
+                            <option value="drinks">Drinks</option>
+                        </select>
+                    </div>
+                    <div class="table-wrap">
+                        <table class="admin-table" id="menu-table">
+                            <thead>
+                                <tr>
+                                    <th>Dish</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Tags</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="menu-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RESERVATIONS ────────────────────────────── -->
+            <section class="panel" id="panel-reservations">
+                <div class="panel-header">
+                    <h1 class="panel-title">Reservations</h1>
+                    <div class="filter-row">
+                        <select class="filter-select" id="res-status-filter">
+                            <option value="all">All Statuses</option>
+                            <option value="pending">Pending</option>
+                            <option value="confirmed">Confirmed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="table-wrap">
+                        <table class="admin-table" id="res-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Guest</th>
+                                    <th>Contact</th>
+                                    <th>Date & Time</th>
+                                    <th>Guests</th>
+                                    <th>Notes</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="res-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONTACTS ────────────────────────────────── -->
+            <section class="panel" id="panel-contacts">
+                <div class="panel-header">
+                    <h1 class="panel-title">Contact Messages</h1>
+                </div>
+                <div id="contacts-list"></div>
+            </section>
+
+            <!-- HOURS ──────────────────────────────────── -->
+            <section class="panel" id="panel-hours">
+                <div class="panel-header">
+                    <h1 class="panel-title">Opening Hours</h1>
+                </div>
+                <div class="card">
+                    <form id="hours-form" class="admin-form">
+                        <div class="hours-editor" id="hours-editor">
+                            <!-- Populated by JS -->
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Save Hours</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- BLOG ───────────────────────────────────── -->
+            <section class="panel" id="panel-blog">
+                <div class="panel-header">
+                    <h1 class="panel-title">Blog, Events & Announcements</h1>
+                    <button class="btn btn-primary" id="add-post-btn">+ New Post</button>
+                </div>
+
+                <!-- Post form -->
+                <div class="card form-card" id="post-form-card" style="display:none">
+                    <h2 class="card-title" id="post-form-title">New Post</h2>
+                    <form id="post-form" class="admin-form">
+                        <input type="hidden" id="post-id" />
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="pf-title">Title *</label>
+                                <input type="text" id="pf-title" placeholder="Post title" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="pf-type">Type</label>
+                                <select id="pf-type">
+                                    <option value="event">Event</option>
+                                    <option value="announcement">Announcement</option>
+                                    <option value="blog">Blog Post</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="pf-date">Date</label>
+                                <input type="date" id="pf-date" />
+                            </div>
+                            <div class="form-group">
+                                <label for="pf-image">Image URL</label>
+                                <input type="text" id="pf-image" placeholder="/uploads/event.jpg" />
+                            </div>
+                            <div class="form-group full">
+                                <label for="pf-excerpt">Excerpt *</label>
+                                <textarea id="pf-excerpt" rows="2" required></textarea>
+                            </div>
+                            <div class="form-group full">
+                                <label for="pf-content">Full Content</label>
+                                <textarea id="pf-content" rows="5"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="pf-published" /> &nbsp;Published
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Save Post</button>
+                            <button type="button" class="btn btn-ghost-dark" id="post-form-cancel">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="posts-grid" id="posts-grid"></div>
+            </section>
+
+            <!-- MEDIA ──────────────────────────────────── -->
+            <section class="panel" id="panel-media">
+                <div class="panel-header">
+                    <h1 class="panel-title">Media Library</h1>
+                    <label class="btn btn-primary" for="media-upload-input">
+                        ⬆️ Upload Images
+                        <input type="file" id="media-upload-input" accept="image/*" multiple style="display:none" />
+                    </label>
+                </div>
+                <div class="upload-progress" id="upload-progress" style="display:none">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <span id="upload-status">Uploading…</span>
+                </div>
+                <div class="media-grid" id="media-grid">
+                    <div class="media-placeholder">No images yet. Upload from the button above.</div>
+                </div>
+            </section>
+
+            <!-- SETTINGS ───────────────────────────────── -->
+            <section class="panel" id="panel-settings">
+                <div class="panel-header">
+                    <h1 class="panel-title">SEO & Site Settings</h1>
+                </div>
+                <div class="settings-cols">
+                    <!-- SEO Card -->
+                    <div class="card">
+                        <h2 class="card-title">SEO Settings</h2>
+                        <form id="seo-form" class="admin-form">
+                            <div class="form-group">
+                                <label for="seo-title">Site Title</label>
+                                <input type="text" id="seo-title" />
+                            </div>
+                            <div class="form-group">
+                                <label for="seo-desc">Meta Description</label>
+                                <textarea id="seo-desc" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="seo-kw">Keywords</label>
+                                <input type="text" id="seo-kw" placeholder="comma, separated, keywords" />
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save SEO</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Homepage Content Card -->
+                    <div class="card">
+                        <h2 class="card-title">Homepage Content</h2>
+                        <form id="homepage-form" class="admin-form">
+                            <div class="form-group">
+                                <label for="hp-tagline">Hero Tagline</label>
+                                <input type="text" id="hp-tagline" />
+                            </div>
+                            <div class="form-group">
+                                <label for="hp-sub">Hero Subtext</label>
+                                <textarea id="hp-sub" rows="2"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="hp-chef-name">Chef Name</label>
+                                <input type="text" id="hp-chef-name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="hp-chef-bio">Chef Bio</label>
+                                <textarea id="hp-chef-bio" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="hp-story">Restaurant Story</label>
+                                <textarea id="hp-story" rows="4"></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save Content</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DESIGN ─────────────────────────────────── -->
+            <section class="panel" id="panel-design">
+                <div class="panel-header">
+                    <h1 class="panel-title">Design Customization</h1>
+                </div>
+                <div class="settings-cols">
+                    <div class="card">
+                        <h2 class="card-title">Colors & Theme</h2>
+                        <form id="design-form" class="admin-form">
+                            <div class="form-group">
+                                <label for="d-accent">Accent Color</label>
+                                <div class="color-row">
+                                    <input type="color" id="d-accent" value="#7A9E7E" />
+                                    <input type="text" id="d-accent-text" placeholder="#7A9E7E" value="#7A9E7E" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="d-bg">Background Color</label>
+                                <div class="color-row">
+                                    <input type="color" id="d-bg" value="#F8F7F4" />
+                                    <input type="text" id="d-bg-text" placeholder="#F8F7F4" value="#F8F7F4" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="d-text">Primary Text Color</label>
+                                <div class="color-row">
+                                    <input type="color" id="d-text" value="#1a1a1a" />
+                                    <input type="text" id="d-text-text" placeholder="#1a1a1a" value="#1a1a1a" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="d-font-head">Heading Font</label>
+                                <select id="d-font-head">
+                                    <option value="Cormorant Garamond">Cormorant Garamond (Default)</option>
+                                    <option value="Playfair Display">Playfair Display</option>
+                                    <option value="Libre Baskerville">Libre Baskerville</option>
+                                    <option value="Lora">Lora</option>
+                                    <option value="Merriweather">Merriweather</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="d-font-body">Body Font</label>
+                                <select id="d-font-body">
+                                    <option value="Inter">Inter (Default)</option>
+                                    <option value="DM Sans">DM Sans</option>
+                                    <option value="Nunito">Nunito</option>
+                                    <option value="Source Sans 3">Source Sans 3</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save Design</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card design-preview">
+                        <h2 class="card-title">Live Preview</h2>
+                        <div class="preview-box" id="preview-box">
+                            <div class="preview-header" id="preview-header">
+                                <span class="preview-kanji">風</span>
+                                <span class="preview-name">Kaze</span>
+                            </div>
+                            <div class="preview-body" id="preview-body">
+                                <h3 class="preview-heading" id="preview-heading">Where Every Season Tells a Story</h3>
+                                <p class="preview-text" id="preview-text">Authentic Japanese cuisine crafted with
+                                    seasonal precision.</p>
+                                <button class="preview-btn" id="preview-btn">Book a Table</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+    <!-- Confirm dialog -->
+    <div class="modal-overlay" id="confirm-modal">
+        <div class="confirm-card">
+            <p id="confirm-message">Are you sure?</p>
+            <div class="confirm-actions">
+                <button class="btn btn-danger" id="confirm-yes">Delete</button>
+                <button class="btn btn-ghost-dark" id="confirm-no">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/admin/js/admin.js"></script>
+</body>
+
+</html>
