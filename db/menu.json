@@ -6,7 +6,7 @@
             "category": "sashimi",
             "price": 1800,
             "description": "A curated selection of the freshest seasonal fish, sliced by our itamae with precision and care.",
-            "image": "/artifacts/sashimi_moriawase_1772723375216.png",
+            "image": "/uploads/sashimi-moriawase.png",
             "tags": [
                 "chef-pick",
                 "seasonal"
@@ -19,7 +19,7 @@
             "category": "nigiri",
             "price": 1500,
             "description": "A5 Wagyu beef, lightly torched, atop seasoned shari rice with a touch of truffle salt.",
-            "image": "/artifacts/wagyu_nigiri_1772723394324.png",
+            "image": "/uploads/wagyu-nigiri.png",
             "tags": [
                 "chef-pick",
                 "premium"
@@ -32,7 +32,7 @@
             "category": "ramen",
             "price": 850,
             "description": "Our signature tonkotsu broth, simmered for 18 hours, with chashu pork, soft egg, and bamboo shoots.",
-            "image": "/artifacts/kaze_ramen_1772723415450.png",
+            "image": "/uploads/kaze-ramen.png",
             "tags": [
                 "popular",
                 "signature"
@@ -45,7 +45,7 @@
             "category": "donburi",
             "price": 2200,
             "description": "Premium Santa Barbara sea urchin and Hokkaido salmon roe over perfectly seasoned rice.",
-            "image": "/artifacts/uni_ikura_don_1772723439448.png",
+            "image": "/uploads/uni-ikura-don.png",
             "tags": [
                 "chef-pick",
                 "premium"
@@ -58,7 +58,7 @@
             "category": "appetizers",
             "price": 350,
             "description": "Salted young soybeans, lightly charred on the robata grill.",
-            "image": "/artifacts/edamame_1772723481065.png",
+            "image": "/uploads/edamame.png",
             "tags": [
                 "vegan"
             ],
@@ -70,7 +70,7 @@
             "category": "appetizers",
             "price": 450,
             "description": "Pan-fried pork and cabbage dumplings with yuzu ponzu dipping sauce.",
-            "image": "/artifacts/gyoza_1772723499574.png",
+            "image": "/uploads/gyoza.png",
             "tags": [
                 "popular"
             ],
@@ -82,7 +82,7 @@
             "category": "desserts",
             "price": 550,
             "description": "A Japanese-Italian fusion dessert with ceremonial grade matcha, mascarpone, and lady fingers.",
-            "image": "/artifacts/matcha_tiramisu_1772723521412.png",
+            "image": "/uploads/matcha-tiramisu.png",
             "tags": [
                 "popular",
                 "seasonal"
@@ -95,7 +95,7 @@
             "category": "drinks",
             "price": 750,
             "description": "House-infused yuzu sake with lychee, elderflower and a hint of shiso.",
-            "image": "/artifacts/yuzu_sake_1772723539663.png",
+            "image": "/uploads/yuzu-sake.png",
             "tags": [
                 "popular"
             ],
@@ -107,7 +107,7 @@
             "category": "appetizers",
             "price": 1100,
             "description": "Seasonal vegetables and tiger prawns in an impossibly light, crisp batter. Served with tentsuyu dipping broth.",
-            "image": "/artifacts/tempura_moriawase_1772723604497.png",
+            "image": "/uploads/tempura.png",
             "tags": [],
             "available": true
         },
@@ -117,7 +117,7 @@
             "category": "soup",
             "price": 250,
             "description": "Traditional white miso with silken tofu, wakame, and fresh spring onions.",
-            "image": "/artifacts/miso_soup_1772723623251.png",
+            "image": "/uploads/miso-soup.png",
             "tags": [
                 "vegan"
             ],
@@ -129,7 +129,7 @@
             "category": "desserts",
             "price": 480,
             "description": "Silky Italian panna cotta made with roasted black sesame, finished with a honey glaze.",
-            "image": "/artifacts/black_sesame_panna_cotta_1772723642898.png",
+            "image": "/uploads/sesame-panna-cotta.png",
             "tags": [],
             "available": true
         },
@@ -139,7 +139,7 @@
             "category": "drinks",
             "price": 320,
             "description": "Roasted Japanese green tea with steamed oat milk, lightly sweetened.",
-            "image": "/artifacts/matcha_tiramisu_1772723521412.png",
+            "image": "/uploads/hojicha-latte.png",
             "tags": [
                 "popular",
                 "vegan"

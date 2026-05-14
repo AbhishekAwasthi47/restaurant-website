@@ -77,7 +77,7 @@ app.use('/api', (req, res, next) => {
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/admin', express.static(path.join(__dirname, 'admin')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-app.use('/artifacts', express.static('C:\\Users\\91873\\.gemini\\antigravity\\brain\\75ca2b05-9ab0-41fe-99fe-5e831d696763'));
+app.use('/artifacts', express.static(path.join(__dirname, 'public', 'artifacts')));
 
 // ── Multer (media uploads) ────────────────────────────────────────────────────
 const storage = multer.diskStorage({
